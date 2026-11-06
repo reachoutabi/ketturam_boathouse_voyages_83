@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Ketturam Signature Kettuvallam Icon Mark -->
+  <path d="M6 42C18 52 46 52 58 42C50 34 14 34 6 42Z" fill="#9C5B3B"/>
+  <path d="M16 34C24 16 40 16 48 34" stroke="#BFA574" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 14V34" stroke="#BFA574" stroke-width="2.5"/>
+  <path d="M22 24C28 22 36 22 42 24" stroke="#BFA574" stroke-width="2"/>
+</svg>
