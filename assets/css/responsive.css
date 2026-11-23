@@ -157,6 +157,10 @@
     max-width: 100%;
   }
 
+  .connoisseur-card {
+    padding: 1.8rem 1.5rem;
+  }
+
   /* Single-sided Timeline for Tablet */
   .timeline-wrapper::before {
     inset-inline-start: 24px;
@@ -298,7 +302,8 @@
 
   .hero-section {
     min-height: 90vh;
-    padding-top: calc(var(--nav-height) + 1rem);
+    min-height: 90dvh;
+    padding-top: calc(var(--nav-height) + 3.2rem);
     padding-bottom: 4.5rem;
   }
 
@@ -635,6 +640,10 @@
     display: none !important;
   }
 
+  .hero-section {
+    padding-top: calc(var(--nav-height) + 2.8rem);
+  }
+
   .hero-indicators {
     bottom: 1.5rem !important;
     left: 50% !important;
@@ -720,6 +729,10 @@
     font-size: 0.88rem;
   }
 
+  .rtl-toggle-btn {
+    font-size: 0.68rem;
+  }
+
   .mobile-toggle {
     width: 38px;
     height: 38px;
@@ -727,6 +740,25 @@
 
   .section-booking-strip {
     padding-block: 1.8rem 0.8rem;
+  }
+
+  .ritual-card {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .connoisseur-card {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .hero-sanctuary-location {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.16em !important;
+    gap: 0.5rem !important;
+  }
+
+  .hero-sanctuary-location::before,
+  .hero-sanctuary-location::after {
+    width: 16px !important;
   }
 
   .section-booking-strip + .section {
@@ -963,6 +995,10 @@
     font-size: 0.82rem;
   }
 
+  .rtl-toggle-btn {
+    font-size: 0.64rem;
+  }
+
   .mobile-toggle {
     width: 34px;
     height: 34px;
@@ -980,6 +1016,17 @@
 
   .hero-desc {
     font-size: 0.92rem;
+  }
+
+  .hero-sanctuary-location {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.12em !important;
+    gap: 0.4rem !important;
+  }
+
+  .hero-sanctuary-location::before,
+  .hero-sanctuary-location::after {
+    width: 12px !important;
   }
 
   .boat-specs-grid {
@@ -1099,6 +1146,11 @@
     width: 30px;
     height: 30px;
     font-size: 0.76rem;
+  }
+
+  .rtl-toggle-btn {
+    font-size: 0.58rem;
+    letter-spacing: 0.02em;
   }
 
   .mobile-toggle {

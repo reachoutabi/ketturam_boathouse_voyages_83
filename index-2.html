@@ -79,9 +79,9 @@
           <i class="bi bi-moon-stars"></i>
         </button>
 
-        <!-- RTL Layout Toggle Button (Opposite Arrows) -->
+        <!-- RTL Layout Toggle Button -->
         <button class="action-icon-btn rtl-toggle-btn" aria-label="Toggle RTL Direction" title="Switch RTL Layout">
-          <i class="bi bi-arrow-left-right"></i>
+          <span>RTL</span>
         </button>
 
         <!-- Primary Book Button -->
@@ -235,11 +235,11 @@
         <!-- Ritual 1 -->
         <div class="card ritual-card reveal reveal-delay-1">
           <div class="ritual-card-body">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(191, 165, 116, 0.15); color: var(--color-champagne-brass); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.2rem;">
+            <div class="ritual-card-icon icon-brass">
               <i class="bi bi-sun"></i>
             </div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.08em; display: block; margin-bottom: 0.3rem;">06:00 AM · Sunrise</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--text-heading);">Dawn Pranayama &amp; Mist Glide</h3>
+            <span class="ritual-card-time">06:00 AM · Sunrise</span>
+            <h3 class="ritual-card-title">Dawn Pranayama &amp; Mist Glide</h3>
             <p class="ritual-card-desc">
               Awaken as silver mist uncurls over lotus coves. Gentle breathwork guided on the forward open deck, accompanied by freshly simmered ginger-tulsi decoctions.
             </p>
@@ -253,11 +253,11 @@
         <!-- Ritual 2 -->
         <div class="card ritual-card reveal reveal-delay-2">
           <div class="ritual-card-body">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(60, 131, 96, 0.15); color: #3C8360; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.2rem;">
+            <div class="ritual-card-icon icon-moss">
               <i class="bi bi-compass"></i>
             </div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.08em; display: block; margin-bottom: 0.3rem;">10:30 AM · Immersion</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--text-heading);">Vein Canals Canoe Safari</h3>
+            <span class="ritual-card-time">10:30 AM · Immersion</span>
+            <h3 class="ritual-card-title">Vein Canals Canoe Safari</h3>
             <p class="ritual-card-desc">
               Transfer to an ancient wooden dugout canoe guided by our resident village oarsman. Slip into micro-canals shaded by wild ferns where large vessels cannot enter.
             </p>
@@ -271,13 +271,13 @@
         <!-- Ritual 3 -->
         <div class="card ritual-card reveal reveal-delay-3">
           <div class="ritual-card-body">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(156, 91, 59, 0.15); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.2rem;">
+            <div class="ritual-card-icon icon-teak">
               <i class="bi bi-flower1"></i>
             </div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.08em; display: block; margin-bottom: 0.3rem;">01:30 PM · Nourish</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--text-heading);">Ayurvedic Farm-to-Bow Table</h3>
+            <span class="ritual-card-time">01:30 PM · Nourish</span>
+            <h3 class="ritual-card-title">Ayurvedic Farm-to-Bow Table</h3>
             <p class="ritual-card-desc">
-              Lunch prepared in terracotta cookware using indigenous red matta rice, fresh curry leaves picked that morning, cold-pressed coconut milk, and gentle tridosha spices.
+              Lunch prepared in terracotta cookware using indigenous red matta rice, morning-picked curry leaves, cold-pressed coconut milk, and gentle tridosha spices.
             </p>
           </div>
           <div class="ritual-card-footer">
@@ -289,13 +289,13 @@
         <!-- Ritual 4 -->
         <div class="card ritual-card reveal reveal-delay-4">
           <div class="ritual-card-body">
-            <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(226, 160, 63, 0.15); color: #E2A03F; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.2rem;">
+            <div class="ritual-card-icon icon-amber">
               <i class="bi bi-moon-stars"></i>
             </div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.08em; display: block; margin-bottom: 0.3rem;">07:30 PM · Starlight</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--text-heading);">Lantern Sandbar Anchorage</h3>
+            <span class="ritual-card-time">07:30 PM · Starlight</span>
+            <h3 class="ritual-card-title">Lantern Sandbar Anchorage</h3>
             <p class="ritual-card-desc">
-              Moor away from commercial boat parks in a secluded river crook. Savor candlelit dining on a private sandbank or the open sundeck beneath unpolluted Kerala constellations.
+              Moor away from commercial boat parks in a secluded river crook. Savor candlelit dining on a private sandbank or sundeck beneath unpolluted Kerala constellations.
             </p>
           </div>
           <div class="ritual-card-footer">
@@ -601,62 +601,92 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3">
         <!-- Review 1 -->
-        <div class="card reveal reveal-delay-1" style="padding: 2.2rem; background-color: var(--bg-card); display: flex; flex-direction: column; justify-content: space-between; border-radius: var(--radius-md);">
-          <div>
-            <div style="color: var(--color-champagne-brass); font-size: 1rem; margin-bottom: 1rem;">
+        <div class="card connoisseur-card reveal reveal-delay-1">
+          <div class="connoisseur-body">
+            <div class="connoisseur-stars">
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
             </div>
-            <p style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.7; color: var(--text-heading); margin-bottom: 1.5rem; font-style: italic;">
+            <p class="connoisseur-quote">
               “In an era of relentless sensory noise, three days drifting along the silent southern lagoons without engine vibration was deeply grounding. The sound of rain falling on the woven bamboo canopy is an acoustic sanctuary.”
             </p>
           </div>
-          <div style="padding-top: 1rem; border-top: 1px solid var(--border-light);">
-            <strong style="display: block; font-size: 0.95rem; color: var(--text-heading);">Kenji Takahashi</strong>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Architectural Acoustic Designer · Kyoto, Japan</span>
+          <div class="connoisseur-author">
+            <img src="assets/images/avatars/kenji_takahashi.jpg"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&w=400&h=400&q=90';"
+                 alt="Kenji Takahashi, Architectural Acoustic Designer in Kyoto"
+                 class="connoisseur-avatar"
+                 loading="lazy"
+                 decoding="async"
+                 width="48"
+                 height="48">
+            <div class="connoisseur-info">
+              <strong class="connoisseur-name">Kenji Takahashi</strong>
+              <span class="connoisseur-meta">Architectural Acoustic Designer · Kyoto, Japan</span>
+            </div>
           </div>
         </div>
 
         <!-- Review 2 -->
-        <div class="card reveal reveal-delay-2" style="padding: 2.2rem; background-color: var(--bg-card); display: flex; flex-direction: column; justify-content: space-between; border-radius: var(--radius-md);">
-          <div>
-            <div style="color: var(--color-champagne-brass); font-size: 1rem; margin-bottom: 1rem;">
+        <div class="card connoisseur-card reveal reveal-delay-2">
+          <div class="connoisseur-body">
+            <div class="connoisseur-stars">
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
             </div>
-            <p style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.7; color: var(--text-heading); margin-bottom: 1.5rem; font-style: italic;">
-              “Completed three chapters of my manuscript while anchored near the Pathiramanal reed beds. Starlink kept my publisher connected, but the absolute tranquility made it feel like another century.”
+            <p class="connoisseur-quote">
+              “Completed three chapters of my manuscript while anchored near the Pathiramanal reed beds. High-speed satellite kept my publisher connected, yet the pristine stillness felt entirely untouched by modern noise.”
             </p>
           </div>
-          <div style="padding-top: 1rem; border-top: 1px solid var(--border-light);">
-            <strong style="display: block; font-size: 0.95rem; color: var(--text-heading);">Claire Abernathy</strong>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Author &amp; Essayist · Edinburgh, UK</span>
+          <div class="connoisseur-author">
+            <img src="assets/images/avatars/claire_abernathy.jpg"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=90';"
+                 alt="Claire Abernathy, Literary Author and Essayist in Edinburgh"
+                 class="connoisseur-avatar"
+                 loading="lazy"
+                 decoding="async"
+                 width="48"
+                 height="48">
+            <div class="connoisseur-info">
+              <strong class="connoisseur-name">Claire Abernathy</strong>
+              <span class="connoisseur-meta">Literary Author &amp; Essayist · Edinburgh, Scotland</span>
+            </div>
           </div>
         </div>
 
         <!-- Review 3 -->
-        <div class="card reveal reveal-delay-3" style="padding: 2.2rem; background-color: var(--bg-card); display: flex; flex-direction: column; justify-content: space-between; border-radius: var(--radius-md);">
-          <div>
-            <div style="color: var(--color-champagne-brass); font-size: 1rem; margin-bottom: 1rem;">
+        <div class="card connoisseur-card reveal reveal-delay-3">
+          <div class="connoisseur-body">
+            <div class="connoisseur-stars">
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
             </div>
-            <p style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.7; color: var(--text-heading); margin-bottom: 1.5rem; font-style: italic;">
-              “The dedication to tridosha-balanced cooking in earthenware pots is extraordinary. To receive such purity of food, air, and stillness on water is rare in modern luxury travel.”
+            <p class="connoisseur-quote">
+              “The dedication to tridosha-balanced cooking in clay earthenware vessels is extraordinary. To receive such holistic purity of nourishing cuisine, fragrant air, and silence on water is rare in modern travel.”
             </p>
           </div>
-          <div style="padding-top: 1rem; border-top: 1px solid var(--border-light);">
-            <strong style="display: block; font-size: 0.95rem; color: var(--text-heading);">Dr. Stefan &amp; Margarethe Weber</strong>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Holistic Health Practitioners · Zurich, Switzerland</span>
+          <div class="connoisseur-author">
+            <img src="assets/images/avatars/dr_weber.jpg"
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=400&q=90';"
+                 alt="Dr. Stefan Weber, Holistic Health Practitioner in Zurich"
+                 class="connoisseur-avatar"
+                 loading="lazy"
+                 decoding="async"
+                 width="48"
+                 height="48">
+            <div class="connoisseur-info">
+              <strong class="connoisseur-name">Dr. Stefan Weber</strong>
+              <span class="connoisseur-meta">Holistic Health Practitioner · Zurich, Switzerland</span>
+            </div>
           </div>
         </div>
       </div>

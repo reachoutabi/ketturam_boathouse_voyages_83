@@ -148,7 +148,7 @@
     rtlBtns.forEach(btn => {
       btn.setAttribute('aria-label', isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
       btn.title = isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout';
-      btn.innerHTML = '<i class="bi bi-arrow-left-right"></i>';
+      btn.innerHTML = '<span>RTL</span>';
       btn.classList.toggle('active', isRTL);
     });
   }

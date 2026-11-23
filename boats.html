@@ -75,7 +75,7 @@
           <i class="bi bi-moon-stars"></i>
         </button>
         <button class="action-icon-btn rtl-toggle-btn" aria-label="Toggle RTL Direction" title="Switch RTL Layout">
-          <i class="bi bi-arrow-left-right"></i>
+          <span>RTL</span>
         </button>
         <a href="contact.html" class="btn btn-primary btn-sm d-none d-md-inline-flex">
           <i class="bi bi-compass"></i>
@@ -707,7 +707,7 @@
               <div class="boat-specs-grid">
                 <div class="boat-spec-item">
                   <i class="bi bi-door-open"></i>
-                  <span class="boat-spec-val">${boat.bedrooms} Bedroom</span>
+                  <span class="boat-spec-val">${boat.bedrooms} Bedroom${boat.bedrooms > 1 ? 's' : ''}</span>
                   <span class="boat-spec-lbl">Layout</span>
                 </div>
                 <div class="boat-spec-item">

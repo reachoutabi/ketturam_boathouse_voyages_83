@@ -10,6 +10,7 @@
    1. DESIGN TOKENS (LIGHT & DARK / NIGHT LAGOON)
    -------------------------------------------------------------------------- */
 :root {
+  color-scheme: light;
   /* Exact Original Palette Requirements */
   --color-lagoon-ink: #0F2B2E;        /* primary dark, headings, footer */
   --color-lagoon-ink-rgb: 15, 43, 46;
@@ -86,6 +87,7 @@
    Warm copper highlights, deep teal-black water surfaces, atmospheric contrast
    -------------------------------------------------------------------------- */
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg-body: var(--color-night-backwater);
   --bg-surface: #102629;
   --bg-surface-elevated: #163337;
@@ -218,10 +220,15 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, li, td, th {
 [dir="rtl"] .modal-body,
 [dir="rtl"] .modal-body p,
 [dir="rtl"] .form-label,
-[dir="rtl"] .input-hint,
+[dir="rtl"] .input-hint {
+  text-align: right;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
 [dir="rtl"] .boat-spec-val,
 [dir="rtl"] .boat-spec-lbl {
-  text-align: right;
+  text-align: center;
   direction: ltr;
   unicode-bidi: isolate;
 }
@@ -249,6 +256,8 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, li, td, th {
 [dir="rtl"] .boat-card-rating,
 [dir="rtl"] .boat-card-rating-inline,
 [dir="rtl"] .boat-price,
+[dir="rtl"] .boat-price-block,
+[dir="rtl"] .boat-price-wrap,
 [dir="rtl"] .package-price,
 [dir="rtl"] .package-price span,
 [dir="rtl"] .tel-link,
@@ -646,7 +655,11 @@ p:last-child {
 }
 
 .site-header.header-dark .brand-tagline {
-  color: var(--color-champagne-brass) !important;
+  color: var(--accent-primary) !important;
+}
+
+.site-header.header-dark .brand-icon {
+  color: var(--accent-primary) !important;
 }
 
 .site-header.header-dark .nav-link {
@@ -760,11 +773,11 @@ p:last-child {
 }
 
 [data-theme="dark"] .brand-tagline {
-  color: var(--color-champagne-brass) !important;
+  color: var(--accent-primary) !important;
 }
 
 [data-theme="dark"] .brand-icon {
-  color: var(--color-champagne-brass) !important;
+  color: var(--accent-primary) !important;
 }
 
 .site-footer .brand-logo,
@@ -773,11 +786,11 @@ p:last-child {
 }
 
 .site-footer .brand-tagline {
-  color: var(--color-champagne-brass) !important;
+  color: var(--accent-primary) !important;
 }
 
 .site-footer .brand-icon {
-  color: var(--color-champagne-brass) !important;
+  color: var(--accent-primary) !important;
 }
 
 .drawer-header .brand-logo {
@@ -1010,20 +1023,24 @@ p:last-child {
   transform: translateY(0);
 }
 
-.rtl-toggle-btn i {
-  font-size: 1rem;
-  transition: transform var(--transition-normal);
-  display: inline-block;
+.rtl-toggle-btn {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-[dir="rtl"] .rtl-toggle-btn i {
-  transform: rotate(180deg);
+.rtl-toggle-btn span {
+  display: inline-block;
+  line-height: 1;
 }
 
 .rtl-toggle-btn.active {
-  background-color: var(--accent-primary);
-  color: #FFFFFF;
-  border-color: var(--accent-primary);
+  background-color: var(--accent-primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--accent-primary) !important;
 }
 
 /* Mobile Hamburger Toggle */
@@ -1253,12 +1270,15 @@ p:last-child {
 .hero-section {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-top: var(--nav-height);
-  padding-bottom: 5.5rem;
+  padding-top: calc(var(--nav-height) + clamp(3.5rem, 6vh, 5.5rem));
+  padding-bottom: clamp(3rem, 5vh, 4.5rem);
+  box-sizing: border-box;
 }
 
 .hero-bg {
@@ -1343,6 +1363,7 @@ p:last-child {
   text-align: center;
   max-width: 920px;
   margin-inline: auto;
+  margin-top: clamp(2.5rem, 5vh, 4.5rem);
   padding-inline: 1rem;
   display: flex;
   flex-direction: column;
@@ -1446,7 +1467,7 @@ span.eyebrow.hero-eyebrow::after,
   color: #DCE6E1;
   max-width: 680px;
   margin-inline: auto;
-  margin-bottom: 2.8rem;
+  margin-bottom: 2rem;
   font-weight: 300;
   line-height: 1.7;
 }
@@ -1457,7 +1478,7 @@ span.eyebrow.hero-eyebrow::after,
   justify-content: center;
   gap: 1.2rem;
   flex-wrap: wrap;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-scroll-indicator {
@@ -1630,13 +1651,13 @@ span.eyebrow.hero-eyebrow::after,
   inset: 0;
   z-index: 2;
   background:
-    radial-gradient(ellipse 95% 75% at 50% 45%, rgba(0, 0, 0, 0.08) 0%, rgba(10, 30, 33, 0.48) 100%),
+    radial-gradient(ellipse 95% 75% at 50% 45%, rgba(0, 0, 0, 0.15) 0%, rgba(10, 30, 33, 0.65) 100%),
     linear-gradient(
       180deg,
-      rgba(10, 30, 33, 0.58) 0%,
-      rgba(10, 30, 33, 0.12) 30%,
-      rgba(10, 30, 33, 0.25) 65%,
-      rgba(10, 30, 33, 0.84) 100%
+      rgba(10, 30, 33, 0.72) 0%,
+      rgba(10, 30, 33, 0.38) 28%,
+      rgba(10, 30, 33, 0.45) 65%,
+      rgba(10, 30, 33, 0.88) 100%
     );
   pointer-events: none;
 }
@@ -1693,12 +1714,29 @@ span.eyebrow.hero-eyebrow::after,
 }
 
 .hero-sanctuary-location {
-  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--color-champagne-brass);
-  letter-spacing: 0.16em;
+  color: #FCE8BF !important;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.95) !important;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.hero-sanctuary-location::before,
+.hero-sanctuary-location::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: #FCE8BF !important;
+  background-color: #FCE8BF !important;
+  box-shadow: 0 0 10px rgba(252, 232, 191, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+  border-radius: 2px !important;
 }
 
 .hero-sanctuary-title {
@@ -1777,44 +1815,98 @@ span.eyebrow.hero-eyebrow::after,
    7c. RITUAL & RESIDENCY CARDS ALIGNMENT & TYPOGRAPHY (HOME PAGE 2)
    -------------------------------------------------------------------------- */
 .ritual-card {
-  padding: 1.8rem;
+  padding: 1.6rem 1.4rem;
   background-color: var(--bg-card);
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-md);
   height: 100%;
   box-sizing: border-box;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 .ritual-card-body {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 auto;
+  padding-bottom: 1.35rem;
 }
 
-.ritual-card-desc {
-  font-size: 0.9rem;
+.ritual-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.ritual-card-icon.icon-brass {
+  background: rgba(191, 165, 116, 0.15);
+  color: var(--color-champagne-brass);
+}
+
+.ritual-card-icon.icon-moss {
+  background: rgba(60, 131, 96, 0.15);
+  color: #3C8360;
+}
+
+.ritual-card-icon.icon-teak {
+  background: rgba(156, 91, 59, 0.15);
+  color: var(--accent-primary);
+}
+
+.ritual-card-icon.icon-amber {
+  background: rgba(226, 160, 63, 0.15);
+  color: #E2A03F;
+}
+
+.ritual-card-time {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.ritual-card-title {
+  font-size: 1.18rem;
+  margin-bottom: 0.65rem;
+  color: var(--text-heading);
+  line-height: 1.25;
+}
+
+.ritual-card-desc,
+p.ritual-card-desc,
+p.ritual-card-desc:last-child {
+  font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.65;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0 !important;
+  flex-grow: 1;
 }
 
 .ritual-card-footer {
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 1.15rem;
   border-top: 1px solid var(--border-light);
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.82rem;
+  gap: 0.55rem;
+  font-size: 0.8rem;
   color: var(--accent-primary);
   font-weight: 600;
-  min-height: 52px;
+  min-height: 48px;
   box-sizing: border-box;
 }
 
 .ritual-card-footer i {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.3;
   flex-shrink: 0;
   color: var(--accent-primary);
@@ -1822,7 +1914,7 @@ span.eyebrow.hero-eyebrow::after,
 }
 
 .ritual-card-footer span {
-  line-height: 1.45;
+  line-height: 1.4;
   flex: 1;
   display: block;
 }
@@ -1902,7 +1994,112 @@ span.eyebrow.hero-eyebrow::after,
 }
 
 /* --------------------------------------------------------------------------
-   7d. CINEMATIC SUBPAGE HERO BANNERS (4K Backgrounds & Distinct Motions)
+   7d. CONNOISSEUR TESTIMONIAL CARDS (HOME PAGE 2)
+   -------------------------------------------------------------------------- */
+.connoisseur-card {
+  padding: 2.2rem;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: var(--radius-md);
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.connoisseur-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-bottom: 1.5rem;
+}
+
+.connoisseur-stars {
+  color: var(--color-champagne-brass);
+  font-size: 1rem;
+  margin-bottom: 1.1rem;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.connoisseur-quote,
+p.connoisseur-quote,
+p.connoisseur-quote:last-child {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-heading);
+  margin-bottom: 0 !important;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.connoisseur-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+  min-height: 82px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.connoisseur-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--color-champagne-brass);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.connoisseur-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.25rem;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.connoisseur-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.connoisseur-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  height: 2.7em;
+  min-height: 2.7em;
+  max-height: 2.7em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+[dir="rtl"] .connoisseur-author {
+  flex-direction: row;
+}
+
+[dir="rtl"] .connoisseur-info {
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   7e. CINEMATIC SUBPAGE HERO BANNERS (4K Backgrounds & Distinct Motions)
    -------------------------------------------------------------------------- */
 .page-hero-banner {
   position: relative;
@@ -2309,7 +2506,6 @@ span.eyebrow.hero-eyebrow::after,
 .strip-input,
 .strip-select {
   height: 48px;
-  padding-inline: 1rem;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   background-color: var(--bg-body);
@@ -2317,13 +2513,93 @@ span.eyebrow.hero-eyebrow::after,
   font-weight: 500;
   outline: none;
   width: 100%;
+  box-sizing: border-box;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.strip-input {
+  padding-inline: 1rem;
+}
+
+.strip-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-inline-start: 1rem;
+  padding-inline-end: 2.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239C5B3B'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px 10px;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .strip-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23C5A059'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .strip-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23C5A059'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  }
+}
+
+[dir="rtl"] .strip-select {
+  background-position: left 1rem center;
+  padding-inline-start: 2.6rem;
+  padding-inline-end: 1rem;
 }
 
 .strip-input:focus,
 .strip-select:focus {
   border-color: var(--accent-primary);
   box-shadow: 0 0 0 3px rgba(156, 91, 59, 0.15);
+}
+
+/* Date Input & Calendar Picker Indicator Contrast Enhancement (WCAG AAA) */
+input[type="date"] {
+  color-scheme: light;
+  accent-color: var(--accent-primary);
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  opacity: 0.75;
+  padding: 4px;
+  margin-inline-end: 2px;
+  transition: opacity var(--transition-fast), filter var(--transition-fast), transform var(--transition-fast);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Dark Theme: Invert indicator to bright high-contrast warm ivory (>13:1 contrast) */
+[data-theme="dark"] input[type="date"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.9) brightness(1.15);
+  opacity: 0.9;
+}
+
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(1) brightness(1.25);
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) input[type="date"] {
+    color-scheme: dark;
+  }
+  :root:not([data-theme="light"]) input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.9) brightness(1.15);
+    opacity: 0.9;
+  }
 }
 
 /* --------------------------------------------------------------------------
